@@ -1,0 +1,26 @@
+name: Tool compatibility note
+description: Request or document support for another coding-agent tool.
+title: "[compatibility]: "
+labels: ["compatibility", "documentation"]
+body:
+  - type: input
+    id: tool
+    attributes:
+      label: Tool name
+      placeholder: "Example: Aider, Windsurf, Continue, Codex"
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Persistent instruction mechanism
+      description: How does this tool load project or user instructions?
+    validations:
+      required: true
+  - type: textarea
+    id: mapping
+    attributes:
+      label: Suggested mapping
+      description: Which repo file should users copy or adapt?
+    validations:
+      required: false

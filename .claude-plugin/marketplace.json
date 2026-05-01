@@ -1,0 +1,25 @@
+{
+  "name": "coding-agent-guidelines",
+  "description": "Marketplace hosting the coding-agent-guidelines plugin for Claude Code.",
+  "metadata": {
+    "description": "Marketplace hosting the coding-agent-guidelines plugin for Claude Code."
+  },
+  "owner": {
+    "name": "Ashish Kaloge"
+  },
+  "plugins": [
+    {
+      "name": "coding-agent-guidelines",
+      "description": "Drop-in behavioral guidelines for AI coding agents: reconnaissance before action, minimal scoped diffs, verifiable finish lines, context discipline, deliberate sub-agent and MCP use, plan mode, and matched model selection.",
+      "version": "1.0.0",
+      "source": "./plugins/coding-agent-guidelines",
+      "category": "development",
+      "keywords": [
+        "guidelines",
+        "behavior",
+        "best-practices",
+        "skill"
+      ]
+    }
+  ]
+}

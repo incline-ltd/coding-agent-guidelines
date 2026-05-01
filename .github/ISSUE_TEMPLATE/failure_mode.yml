@@ -1,0 +1,50 @@
+name: Agent failure mode
+description: Add a concrete failure mode that the guidelines should cover.
+title: "[failure-mode]: "
+labels: ["example", "guideline"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for concrete, reproducible AI coding-agent behavior.
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Original prompt
+      description: What did the user ask the agent to do?
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: Wrong agent behavior
+      description: What did the agent do that was harmful or wasteful?
+    validations:
+      required: true
+  - type: textarea
+    id: better
+    attributes:
+      label: Better behavior
+      description: What should a disciplined agent do instead?
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Guideline area
+      options:
+        - Reconnaissance
+        - Minimal change
+        - Scoped diff
+        - Verification
+        - Context budget
+        - Tool choice
+        - Delegation
+        - Memory
+        - Planning
+        - MCP
+        - Skills
+        - Model choice
+        - Other
+    validations:
+      required: true
