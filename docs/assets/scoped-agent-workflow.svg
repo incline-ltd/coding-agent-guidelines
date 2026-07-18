@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title description">
+  <title id="title">Example of an unscoped agent change compared with a scoped and verified workflow</title>
+  <desc id="description">The unscoped path moves from a vague request to many unrelated edits and an unverified claim. The scoped path reads the relevant code, makes the smallest change, runs a targeted check, and reports evidence.</desc>
+  <style>
+    text { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+    .heading { font-size: 27px; font-weight: 700; }
+    .step { font-size: 20px; font-weight: 600; }
+    .note { font-size: 17px; fill: #526071; }
+    .arrow { font-size: 28px; font-weight: 700; }
+  </style>
+
+  <rect width="1200" height="440" rx="28" fill="#f6f8fa"/>
+
+  <rect x="36" y="36" width="552" height="368" rx="22" fill="#fff1f2" stroke="#f0a1aa" stroke-width="2"/>
+  <text x="68" y="84" class="heading">Unscoped agent change</text>
+  <text x="68" y="116" class="note">More change, little proof</text>
+
+  <rect x="68" y="148" width="488" height="52" rx="12" fill="#ffffff" stroke="#e7a6ad"/>
+  <text x="92" y="181" class="step">Vague request</text>
+  <text x="300" y="213" class="arrow">&#8595;</text>
+  <rect x="68" y="220" width="488" height="52" rx="12" fill="#ffffff" stroke="#e7a6ad"/>
+  <text x="92" y="253" class="step">Edits many files</text>
+  <text x="300" y="285" class="arrow">&#8595;</text>
+  <rect x="68" y="292" width="488" height="72" rx="12" fill="#ffffff" stroke="#e7a6ad"/>
+  <text x="92" y="324" class="step">“It should work”</text>
+  <text x="92" y="348" class="note">No targeted check or clear evidence</text>
+
+  <rect x="612" y="36" width="552" height="368" rx="22" fill="#ecfdf5" stroke="#7ccca9" stroke-width="2"/>
+  <text x="644" y="84" class="heading">Scoped, verified workflow</text>
+  <text x="644" y="116" class="note">Small change, clear evidence</text>
+
+  <rect x="644" y="148" width="488" height="52" rx="12" fill="#ffffff" stroke="#8bcdb0"/>
+  <text x="668" y="181" class="step">Read the task and relevant code</text>
+  <text x="876" y="213" class="arrow">&#8595;</text>
+  <rect x="644" y="220" width="488" height="52" rx="12" fill="#ffffff" stroke="#8bcdb0"/>
+  <text x="668" y="253" class="step">Make the smallest useful change</text>
+  <text x="876" y="285" class="arrow">&#8595;</text>
+  <rect x="644" y="292" width="488" height="72" rx="12" fill="#ffffff" stroke="#8bcdb0"/>
+  <text x="668" y="324" class="step">Run the targeted check</text>
+  <text x="668" y="348" class="note">Report the command and its result</text>
+</svg>

@@ -9,6 +9,11 @@ A drop-in behavioral spec for AI coding agents. It helps Claude Code, Codex,
 Cursor, and other coding agents behave like careful senior engineers: read
 first, change less, verify more, and avoid context bloat.
 
+![Example comparing an unscoped agent change with a scoped workflow that reads the relevant code, makes the smallest change, runs a targeted check, and reports evidence.](docs/assets/scoped-agent-workflow.svg)
+
+*Illustrative example, not a measured benchmark. See [worked examples](EXAMPLES.md)
+for code-level comparisons.*
+
 ## Why This Exists
 
 AI coding agents fail in predictable ways:
@@ -189,6 +194,15 @@ for another coding tool.
 This repo contains instructions and development validation, not application
 runtime code. Still, if you find a supply-chain, plugin packaging, or
 malicious-instruction issue, see [SECURITY.md](SECURITY.md).
+
+## Related Public Projects
+
+- [Production Launch Prompts](https://github.com/ashishkaloge/production-launch-prompts):
+  prompts and scorecards for checking whether software is ready to ship
+- [Awesome Agentic Engineering](https://github.com/ashishkaloge/awesome-agentic-engineering):
+  a curated list of practical agent engineering resources
+- [Algo Trading Website](https://github.com/ashishkaloge/algo-trading-website):
+  a small static landing page with reusable design primitives
 
 ## License
 
