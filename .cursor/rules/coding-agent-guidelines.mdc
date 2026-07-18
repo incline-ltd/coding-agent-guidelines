@@ -67,19 +67,19 @@ become harder to follow.
 
 ## How this rule maps to Cursor's modes
 
-Cursor 2.x ships several Agent modes:
+Cursor offers several Agent modes:
 
 - **Agent** (default): autonomous, all tools, edits files, runs
   commands, iterates on errors.
 - **Ask**: read-only Q&A. Cannot edit. Useful for exploration.
 - **Manual**: edits only the files you explicitly select; no autonomous
   exploration.
-- **Plan** (Cursor 2.x): research-first mode. The agent analyzes the
+- **Plan**: research-first mode. The agent analyzes the
   codebase, asks clarifying questions, and produces a reviewable plan
   saved as a file before execution.
-- **Debug** (Cursor 2.2+): instruments the app with runtime logs to
+- **Debug**: instruments the app with runtime logs to
   reproduce and isolate bugs.
-- **Custom Modes** (beta): user-defined combinations of tools and
+- **Custom Modes**: user-defined combinations of tools and
   instructions.
 
 Mapping from `CLAUDE.md` sections to Cursor:
@@ -94,7 +94,7 @@ Mapping from `CLAUDE.md` sections to Cursor:
 | Right Tool, Right Moment      | Same; Cursor's tool list is similar                          |
 | Delegation Hygiene            | Cursor uses parallel subagents during exploration; same principle |
 | Persisted vs. Ephemeral       | Project Rules / User Rules / Memories instead of `CLAUDE.md` tiers |
-| Plan Before You Patch         | Cursor Plan Mode (saves plans as files in 2.2+)              |
+| Plan Before You Patch         | Cursor Plan Mode                                             |
 | External Tools Are a Tax      | MCP integration in Cursor — same caveat about server bloat   |
 | Skills as Loadable Playbooks  | No direct equivalent; closest is Auto Attached rules with `globs` |
 | Match the Model to the Task   | Cursor's model dropdown + Auto routing                       |

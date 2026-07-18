@@ -1,6 +1,6 @@
 {
   "name": "coding-agent-guidelines",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Drop-in behavioral guidelines for AI coding agents: reconnaissance before action, minimal scoped diffs, verifiable finish lines, context discipline, deliberate sub-agent and MCP use, plan mode, and matched model selection.",
   "author": {
     "name": "Ashish Kaloge"

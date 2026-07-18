@@ -5,9 +5,9 @@
 [![Cursor Rules](https://img.shields.io/badge/Cursor-.cursor%2Frules-111111)](.cursor/rules/coding-agent-guidelines.mdc)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-AGENTS.md-0f766e)](AGENTS.md)
 
-A drop-in behavioral spec for AI coding agents. It helps Claude Code, Cursor,
-and other coding agents behave like careful senior engineers: read first, change
-less, verify more, and avoid context bloat.
+A drop-in behavioral spec for AI coding agents. It helps Claude Code, Codex,
+Cursor, and other coding agents behave like careful senior engineers: read
+first, change less, verify more, and avoid context bloat.
 
 ## Why This Exists
 
@@ -41,7 +41,7 @@ project.
 | --- | --- |
 | [CLAUDE.md](CLAUDE.md) | Project-level behavioral rules for Claude Code |
 | [AGENTS.md](AGENTS.md) | Cross-tool agent instructions for agents that read AGENTS.md |
-| [SKILL.md](SKILL.md) | Claude Code Skill form of the same guidance |
+| [SKILL.md](SKILL.md) | Reusable Skill form of the same guidance |
 | [.claude/skills/coding-agent-guidelines/SKILL.md](.claude/skills/coding-agent-guidelines/SKILL.md) | Ready-to-copy project skill location |
 | [.cursor/rules/coding-agent-guidelines.mdc](.cursor/rules/coding-agent-guidelines.mdc) | Cursor always-on project rule |
 | [CURSOR.md](CURSOR.md) | Cursor explanation and rule source |
@@ -49,7 +49,7 @@ project.
 | [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) | Claude Code marketplace catalog |
 | [plugins/coding-agent-guidelines](plugins/coding-agent-guidelines) | Installable Claude Code plugin package |
 | [.github](.github) | Issue and pull-request templates for public contributions |
-| [docs](docs) | Installation, architecture, adoption, roadmap, and launch notes |
+| [docs](docs) | Installation, architecture, adoption, and roadmap notes |
 
 ## Install Options
 
@@ -73,9 +73,31 @@ mkdir -p /path/to/your-project/.claude/skills/coding-agent-guidelines
 cp SKILL.md /path/to/your-project/.claude/skills/coding-agent-guidelines/SKILL.md
 ```
 
+### Codex: Skill
+
+Copy the skill into a repository:
+
+```bash
+mkdir -p /path/to/your-project/.agents/skills/coding-agent-guidelines
+cp SKILL.md /path/to/your-project/.agents/skills/coding-agent-guidelines/SKILL.md
+```
+
+Or install it for your user account:
+
+```bash
+mkdir -p ~/.agents/skills/coding-agent-guidelines
+cp SKILL.md ~/.agents/skills/coding-agent-guidelines/SKILL.md
+```
+
+Codex scans these locations and loads the skill when the task matches its
+description or when you invoke it directly.
+
+See the [official Codex skill guide](https://developers.openai.com/codex/build-skills)
+for all supported skill locations.
+
 ### Claude Code: Plugin
 
-After this repo is hosted on GitHub:
+Install the plugin from the public GitHub repository:
 
 ```text
 /plugin marketplace add ashishkaloge/coding-agent-guidelines
@@ -128,6 +150,7 @@ coding-agent-guidelines/
 ├── .claude/skills/coding-agent-guidelines/SKILL.md
 ├── .claude-plugin/marketplace.json
 ├── .github/
+├── scripts/validate.mjs
 ├── plugins/coding-agent-guidelines/
 │   ├── .claude-plugin/plugin.json
 │   └── skills/coding-agent-guidelines/SKILL.md
@@ -139,7 +162,7 @@ across root, Cursor, Skill, and plugin install paths.
 
 ## Who Should Use This
 
-- developers using Claude Code or Cursor daily
+- developers using Claude Code, Codex, or Cursor daily
 - teams that want smaller diffs from AI coding agents
 - maintainers tired of agents touching unrelated files
 - founders using AI tools to move fast without destroying code quality
@@ -149,8 +172,9 @@ across root, Cursor, Skill, and plugin install paths.
 
 Designed for:
 
-- Claude Code 2.1+
-- Cursor 2.x project rules
+- Claude Code project instructions, skills, and plugins
+- Codex repository and user skills
+- Cursor project rules
 - agents that read `AGENTS.md`
 - any coding-agent tool with persistent Markdown instructions
 
@@ -162,9 +186,9 @@ for another coding tool.
 
 ## Security
 
-This repo contains instructions, not executable runtime code. Still, if you find
-a supply-chain, plugin packaging, or malicious-instruction issue, see
-[SECURITY.md](SECURITY.md).
+This repo contains instructions and development validation, not application
+runtime code. Still, if you find a supply-chain, plugin packaging, or
+malicious-instruction issue, see [SECURITY.md](SECURITY.md).
 
 ## License
 

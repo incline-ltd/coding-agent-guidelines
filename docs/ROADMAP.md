@@ -1,18 +1,19 @@
 # Roadmap
 
-## v1.0
+## v1.0.0 (released)
 
-- Publish the core Claude Code, Cursor, Skill, and plugin files.
-- Add worked examples for common coding-agent failure modes.
-- Validate the plugin marketplace layout.
-- Document install paths for Claude Code and Cursor.
+- Published the core Claude Code, Cursor, Skill, and plugin files.
+- Added worked examples for common coding-agent failure modes.
+- Validated the plugin marketplace layout.
+- Documented install paths for Claude Code and Cursor.
 
-## v1.1
+## v1.1.0
 
-- Add AGENTS.md compatibility notes for more tools.
-- Add a sync script that verifies duplicated policy files stay aligned.
-- Add short video/GIF walkthrough assets for the README.
-- Add issue templates for new failure-mode examples.
+- Added Codex repository and user skill install guidance.
+- Replaced version-specific Claude Code and Cursor claims.
+- Added validation for JSON, YAML/frontmatter, and synced `SKILL.md` copies.
+- Added GitHub Actions validation for pushes and pull requests.
+- Added issue templates for failure modes and tool compatibility.
 
 ## v1.2
 
@@ -22,6 +23,7 @@
 
 ## Later
 
-- Tool-specific adapters for other coding agents.
-- A comparison matrix for project memories, rules, skills, and plugins.
-- Community examples from maintainers using the repo in production.
+- Add a short walkthrough for the README.
+- Add tool-specific adapters for other coding agents.
+- Add a comparison matrix for project memories, rules, skills, and plugins.
+- Collect community examples from maintainers using the repo in production.

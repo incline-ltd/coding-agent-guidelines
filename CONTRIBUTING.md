@@ -24,9 +24,10 @@ This repo is itself governed by the guidelines it ships:
 ## Local checks
 
 ```bash
-node -e "JSON.parse(require('fs').readFileSync('.claude-plugin/marketplace.json','utf8'))"
-node -e "JSON.parse(require('fs').readFileSync('plugins/coding-agent-guidelines/.claude-plugin/plugin.json','utf8'))"
+node scripts/validate.mjs
 ```
+
+Ruby must be available on `PATH` for the YAML checks.
 
 If Claude Code is available, also run:
 

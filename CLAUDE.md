@@ -173,7 +173,7 @@ Claude Code has a layered memory system. Use it deliberately.
   communication tone).
 - **Managed/enterprise `CLAUDE.md`**: org-wide policy. Cannot be excluded
   by individual settings.
-- **Auto memory** (Claude Code v2.1.59+): notes the agent writes to itself
+- **Auto memory** (where available): notes the agent writes to itself
   based on corrections and discoveries. Inspect with `/memory`. Toggle
   with the auto memory control in `/memory` or `autoMemoryEnabled` in
   settings. Treat auto memory as suggestions; promote anything important
@@ -289,18 +289,13 @@ your SDK config.
 
 Anthropic's current lineup, in rough order of capability and cost:
 
-- **Opus** — most capable, most expensive, slowest. Use for genuinely
-  hard work: cross-file refactors, architecture decisions, large
-  unfamiliar codebases, planning the hardest changes. Supports the 1M
-  context window at standard pricing on current versions.
-- **Sonnet** — the daily driver. Strong coding performance, much
-  cheaper than Opus, also supports 1M context on current versions.
-  Default to Sonnet unless you have measured evidence Opus does
-  better on your task.
-- **Haiku** — fastest and cheapest. 200K context. Use for high-volume
-  classification, routing, simple file reads, mechanical edits, and
-  Explore-style codebase search. Claude Code's built-in `Explore`
-  subagent is Haiku-backed for exactly this reason.
+- **Opus**: use for genuinely hard work such as cross-file refactors,
+  architecture decisions, large unfamiliar codebases, and planning the
+  hardest changes.
+- **Sonnet**: use as the daily driver for routine coding work. Default to
+  Sonnet unless measured evidence shows Opus does better on the task.
+- **Haiku**: use for high-volume classification, routing, simple file
+  reads, mechanical edits, and Explore-style codebase search.
 
 Practical routing inside Claude Code:
 
