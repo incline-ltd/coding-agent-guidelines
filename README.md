@@ -32,7 +32,7 @@ real projects.
 ## 3-Command Quick Start
 
 ```bash
-git clone https://github.com/ashishkaloge/coding-agent-guidelines.git
+git clone https://github.com/incline-ltd/coding-agent-guidelines.git
 cp coding-agent-guidelines/CLAUDE.md /path/to/your-project/CLAUDE.md
 mkdir -p /path/to/your-project/.cursor/rules && cp coding-agent-guidelines/.cursor/rules/coding-agent-guidelines.mdc /path/to/your-project/.cursor/rules/
 ```
@@ -105,7 +105,7 @@ for all supported skill locations.
 Install the plugin from the public GitHub repository:
 
 ```text
-/plugin marketplace add ashishkaloge/coding-agent-guidelines
+/plugin marketplace add incline-ltd/coding-agent-guidelines
 /plugin install coding-agent-guidelines@coding-agent-guidelines
 ```
 
@@ -197,12 +197,10 @@ malicious-instruction issue, see [SECURITY.md](SECURITY.md).
 
 ## Related Public Projects
 
-- [Production Launch Prompts](https://github.com/ashishkaloge/production-launch-prompts):
+- [Production Launch Prompts](https://github.com/incline-ltd/production-launch-prompts):
   prompts and scorecards for checking whether software is ready to ship
-- [Awesome Agentic Engineering](https://github.com/ashishkaloge/awesome-agentic-engineering):
+- [Awesome Agentic Engineering](https://github.com/incline-ltd/awesome-agentic-engineering):
   a curated list of practical agent engineering resources
-- [Algo Trading Website](https://github.com/ashishkaloge/algo-trading-website):
-  a small static landing page with reusable design primitives
 
 ## License
 
