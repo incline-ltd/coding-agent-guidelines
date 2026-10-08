@@ -197,6 +197,9 @@ malicious-instruction issue, see [SECURITY.md](SECURITY.md).
 
 ## Related Public Projects
 
+- [Awesome Agent Instructions](https://github.com/incline-ltd/awesome-agent-instructions):
+  patterns and a skill for reviewing and simplifying coding-agent instructions
+  while preserving project constraints
 - [Production Launch Prompts](https://github.com/incline-ltd/production-launch-prompts):
   prompts and scorecards for checking whether software is ready to ship
 - [Awesome Agentic Engineering](https://github.com/incline-ltd/awesome-agentic-engineering):
