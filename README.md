@@ -5,7 +5,7 @@
 [![Cursor Rules](https://img.shields.io/badge/Cursor-.cursor%2Frules-111111)](.cursor/rules/coding-agent-guidelines.mdc)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-AGENTS.md-0f766e)](AGENTS.md)
 
-A short behavioral spec for AI coding agents. One file under 70 lines helps
+A short behavioral spec for AI coding agents. One small core helps
 Claude Code, Codex, Cursor, and other coding agents behave like careful senior
 engineers: understand first, change less, verify, and ask before irreversible
 actions.
@@ -19,14 +19,20 @@ actions.
 /plugin install coding-agent-guidelines@coding-agent-guidelines
 ```
 
-**Project file** (appends if the file already exists)
+**Project file**
+
+Download a separate copy for review:
 
 ```bash
-# Claude Code
-curl -fsSL https://raw.githubusercontent.com/incline-ltd/coding-agent-guidelines/main/CLAUDE.md >> CLAUDE.md
-# Codex, Cursor, and other agents that read AGENTS.md
-curl -fsSL https://raw.githubusercontent.com/incline-ltd/coding-agent-guidelines/main/CLAUDE.md >> AGENTS.md
+guidelines_file="$(mktemp)"
+curl -fsSL https://raw.githubusercontent.com/incline-ltd/coding-agent-guidelines/main/CLAUDE.md -o "$guidelines_file" &&
+  printf 'Downloaded for review: %s\n' "$guidelines_file"
 ```
+
+Open the downloaded file and merge the rules you want into your project's
+`CLAUDE.md` (Claude Code) or `AGENTS.md` (other supported agents). If the file
+does not exist, create it from the reviewed copy. Preserve existing project
+instructions and resolve conflicting rules before saving.
 
 Cursor rules, Codex skills, and other paths are under [Install Options](#install-options).
 
@@ -37,16 +43,17 @@ for code-level comparisons.*
 
 ## Why It Is Short
 
-An agent reads every line of its instruction file on every request. A
-February 2026 study of `AGENTS.md`-style context files
-([Gloaguen et al.](https://arxiv.org/abs/2602.11988)) found that they did not
-generally improve task success and raised inference cost by over 20% on
-average. Agents followed the instructions well; repository overviews did not
-help.
+Extra instructions can add work without improving results. A February 2026
+study of `AGENTS.md`-style context files
+([Gloaguen et al.](https://arxiv.org/html/2602.11988v1#S4.SS2)) found mixed
+results: generated repository context often hurt performance, while
+developer-written context helped most tested agents. Both added inference
+cost. This core has not yet been benchmarked.
 
-So the always-loaded file keeps only rules an agent can act on. Explanations
-and tool reference live in [Claude Code notes](docs/CLAUDE_CODE_NOTES.md) and
-[worked examples](EXAMPLES.md), outside the agent's context.
+The core keeps rules an agent can act on. Explanations and tool reference
+live in [Claude Code notes](docs/CLAUDE_CODE_NOTES.md) and
+[worked examples](EXAMPLES.md), which are not automatically loaded by these
+instruction files.
 
 ## Why This Exists
 
@@ -84,10 +91,11 @@ real projects.
 
 ### Claude Code: Project Memory
 
-Copy [CLAUDE.md](CLAUDE.md) to the root of any repository:
+For a new project file, copy [CLAUDE.md](CLAUDE.md) to the repository root.
+If one already exists, merge selected rules as described above:
 
 ```bash
-cp CLAUDE.md /path/to/your-project/CLAUDE.md
+cp -i CLAUDE.md /path/to/your-project/CLAUDE.md
 ```
 
 Claude Code reads project-level `CLAUDE.md` automatically at session start and
@@ -99,7 +107,7 @@ Copy the skill into a project or user skills directory:
 
 ```bash
 mkdir -p /path/to/your-project/.claude/skills/coding-agent-guidelines
-cp SKILL.md /path/to/your-project/.claude/skills/coding-agent-guidelines/SKILL.md
+cp -i SKILL.md /path/to/your-project/.claude/skills/coding-agent-guidelines/SKILL.md
 ```
 
 ### Codex: Skill
@@ -108,14 +116,14 @@ Copy the skill into a repository:
 
 ```bash
 mkdir -p /path/to/your-project/.agents/skills/coding-agent-guidelines
-cp SKILL.md /path/to/your-project/.agents/skills/coding-agent-guidelines/SKILL.md
+cp -i SKILL.md /path/to/your-project/.agents/skills/coding-agent-guidelines/SKILL.md
 ```
 
 Or install it for your user account:
 
 ```bash
 mkdir -p ~/.agents/skills/coding-agent-guidelines
-cp SKILL.md ~/.agents/skills/coding-agent-guidelines/SKILL.md
+cp -i SKILL.md ~/.agents/skills/coding-agent-guidelines/SKILL.md
 ```
 
 Codex scans these locations and loads the skill when the task matches its
@@ -139,7 +147,7 @@ Copy the Cursor rule into your project:
 
 ```bash
 mkdir -p /path/to/your-project/.cursor/rules
-cp .cursor/rules/coding-agent-guidelines.mdc /path/to/your-project/.cursor/rules/
+cp -i .cursor/rules/coding-agent-guidelines.mdc /path/to/your-project/.cursor/rules/
 ```
 
 The rule uses `alwaysApply: true`, so Cursor includes it for every Agent Chat
@@ -150,7 +158,7 @@ request in that project.
 Use [AGENTS.md](AGENTS.md) or [CLAUDE.md](CLAUDE.md) as the source. Paste it into
 whatever persistent instruction mechanism your tool supports.
 
-## What The Rules Enforce
+## What The Rules Cover
 
 1. Understand before editing
 2. Smallest sufficient change
@@ -223,8 +231,8 @@ malicious-instruction issue, see [SECURITY.md](SECURITY.md).
   instructions are text and an agent can ignore them; this local hook stops
   supported cloud-cost commands until a person approves
 - [Agent Policy Map](https://github.com/incline-ltd/agent-policy-map):
-  shows which instruction files Codex, Claude Code, Cursor, and GitHub Copilot
-  load for the same file
+  compares documented instruction discovery for the same file across Codex,
+  Claude Code, Cursor, and GitHub Copilot
 - [Awesome Agent Instructions](https://github.com/incline-ltd/awesome-agent-instructions):
   patterns and a skill for reviewing and simplifying coding-agent instructions
   while preserving project constraints

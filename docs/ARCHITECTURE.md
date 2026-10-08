@@ -10,7 +10,7 @@ install shapes.
 - `SKILL.md`: root copy of the skill body for easy review and copy/paste.
 - `CURSOR.md`: human-readable explanation of the Cursor rule.
 - `EXAMPLES.md`: worked examples showing failure modes and corrected behavior.
-- `docs/CLAUDE_CODE_NOTES.md`: reference notes for people; not loaded by agents.
+- `docs/CLAUDE_CODE_NOTES.md`: reference notes; not automatically loaded by the core.
 
 ## Ready-to-install paths
 
@@ -55,8 +55,8 @@ The duplication is deliberate because every tool expects a different path:
 The content should evolve together. When changing behavior, update `CLAUDE.md`
 first, then sync the same core into `AGENTS.md`, the Cursor rule, and the skill
 copies. Keep explanations out of the always-loaded files.
-Run `node scripts/validate.mjs` to validate metadata and confirm that the three
-`SKILL.md` copies match.
+Run `node scripts/validate.mjs` to validate metadata, confirm that the three
+`SKILL.md` copies match, and check the shared core across all six install files.
 
 ## Release checklist
 
