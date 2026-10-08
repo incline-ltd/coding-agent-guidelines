@@ -15,11 +15,18 @@
 - Added GitHub Actions validation for pushes and pull requests.
 - Added issue templates for failure modes and tool compatibility.
 
-## v1.2
+## v1.2.0
 
+- Cut the always-loaded rules to a short core shared by `CLAUDE.md`,
+  `AGENTS.md`, the Cursor rule, and the skill.
+- Added a rule to ask before irreversible actions.
+- Moved Claude Code reference material to `docs/CLAUDE_CODE_NOTES.md`.
+
+## Next
+
+- Measure the core against no instruction file on a fixed task set.
 - Add more examples from real TypeScript, Python, and infrastructure tasks.
 - Add team rollout guidance for organizations.
-- Add a compact version for small repos with strict context budgets.
 
 ## Later
 

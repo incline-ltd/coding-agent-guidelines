@@ -33,18 +33,13 @@ body:
     attributes:
       label: Guideline area
       options:
-        - Reconnaissance
+        - Understanding before editing
         - Minimal change
         - Scoped diff
         - Verification
-        - Context budget
-        - Tool choice
-        - Delegation
-        - Memory
-        - Planning
-        - MCP
-        - Skills
-        - Model choice
+        - Working efficiently
+        - Irreversible actions
+        - Claude Code notes
         - Other
     validations:
       required: true

@@ -1,19 +1,18 @@
 ---
 description: >
   Behavioral guidelines for AI agents working in this repository. Covers
-  reconnaissance, minimal changes, scoped edits, verification,
-  context discipline, tool use, delegation, memory, planning, MCP, and
-  model selection.
+  understanding before editing, minimal changes, scoped edits, verification,
+  efficient work, and approval before irreversible actions.
 globs:
 alwaysApply: true
 ---
 
 # Cursor Project Rule: Coding Agent Guidelines
 
-This file is the Cursor equivalent of `CLAUDE.md`. Place it at
-`.cursor/rules/coding-agent-guidelines.mdc`. The frontmatter above sets
-`alwaysApply: true`, which means the rule is included in the model
-context for every Agent (Chat) request in this project.
+This file explains the Cursor equivalent of `CLAUDE.md`. Copy
+`.cursor/rules/coding-agent-guidelines.mdc` into your project. The
+frontmatter above sets `alwaysApply: true`, which means the rule is included
+in the model context for every Agent (Chat) request in this project.
 
 ## Where this lives in Cursor's model
 
@@ -84,20 +83,24 @@ Cursor offers several Agent modes:
 
 Mapping from `CLAUDE.md` sections to Cursor:
 
-| `CLAUDE.md` section            | Cursor equivalent                                            |
-|-------------------------------|--------------------------------------------------------------|
-| Reconnaissance Before Action  | Same; reinforce in Plan Mode for multi-file work             |
-| Smallest Sufficient Change    | Same; rule body                                              |
-| Edits as Diffs, Not Rewrites  | Same; reinforced by Manual mode for risky areas              |
-| Define the Finish Line        | Same; auto-run + auto-fix-errors will run tests              |
-| Context as a Budget           | Same; codebase indexing handles search, but `Grep` discipline still applies |
-| Right Tool, Right Moment      | Same; Cursor's tool list is similar                          |
-| Delegation Hygiene            | Cursor uses parallel subagents during exploration; same principle |
-| Persisted vs. Ephemeral       | Project Rules / User Rules / Memories instead of `CLAUDE.md` tiers |
-| Plan Before You Patch         | Cursor Plan Mode                                             |
-| External Tools Are a Tax      | MCP integration in Cursor — same caveat about server bloat   |
-| Skills as Loadable Playbooks  | No direct equivalent; closest is Auto Attached rules with `globs` |
-| Match the Model to the Task   | Cursor's model dropdown + Auto routing                       |
+| `CLAUDE.md` section             | Cursor equivalent                                            |
+|---------------------------------|--------------------------------------------------------------|
+| Understand Before Editing       | Same; reinforce in Plan Mode for multi-file work             |
+| Smallest Sufficient Change      | Same; rule body                                              |
+| Edits as Diffs, Not Rewrites    | Same; reinforced by Manual mode for risky areas              |
+| Define the Finish Line          | Same; auto-run + auto-fix-errors will run tests              |
+| Work Efficiently                | Codebase indexing handles most search; Plan Mode; parallel subagents during exploration |
+| Ask Before Irreversible Actions | Same; review Cursor's auto-run settings as well              |
+
+Topics covered in [Claude Code notes](docs/CLAUDE_CODE_NOTES.md) rather
+than the always-loaded rule:
+
+| Notes topic                     | Cursor equivalent                                            |
+|---------------------------------|--------------------------------------------------------------|
+| Persisted vs. Ephemeral         | Project Rules / User Rules / Memories instead of `CLAUDE.md` tiers |
+| External Tools Are a Tax        | MCP integration in Cursor — same caveat about server bloat   |
+| Skills as Loadable Playbooks    | No direct equivalent; closest is Auto Attached rules with `globs` |
+| Match the Model to the Task     | Cursor's model dropdown + Auto routing                       |
 
 ## Cursor-specific notes
 
@@ -116,7 +119,7 @@ isolation tradeoffs are different.
 dropdown. The dropdown contents track the major frontier models
 (Anthropic Claude Sonnet/Opus/Haiku, OpenAI, Google Gemini, plus
 Cursor's own Composer model trained for in-IDE agentic loops). The
-choice rule from `CLAUDE.md` §12 still applies: don't pay for capacity
+model note in `docs/CLAUDE_CODE_NOTES.md` still applies: don't pay for capacity
 you don't need, but don't underspecify a hard refactor.
 
 **Memories vs Rules.** Memories are *auto-derived* and short — you
@@ -126,77 +129,7 @@ deliberately; let Memories handle small preference drift.
 
 ## The rule body
 
-Below is the substantive content. Treat each section as a directive.
-
-### Reconnaissance Before Action
-
-Before editing, confirm what is being asked. If ambiguity remains
-after reading the relevant files, state the interpretation you'll use
-and proceed; do not silently choose. Surface assumptions explicitly.
-If the user asserts something incorrect, push back rather than agree.
-
-### Smallest Sufficient Change
-
-Write the minimum that satisfies the requirement. No speculative
-parameters, abstract base classes for one subclass, or configuration
-without a second caller. Inline until duplication forces extraction
-(rule of three). Comments explain why, not what.
-
-### Edits as Diffs, Not Rewrites
-
-Modify only what was asked. No drive-by reformatting, no renames
-outside scope, no deletion of "looks unused" code without checking
-call sites. Match the file's existing style.
-
-### Define the Finish Line
-
-State the verification command before writing code. Run it, paste
-output. "Should work" is not a finish condition. If you cannot run
-the check, say so and list the exact command the user should run.
-
-### Context as a Budget
-
-Search before reading. Read targeted ranges, not whole files. Don't
-paste large files into the chat unless you're modifying them.
-Consider whether durable lessons belong in this rule file.
-
-### Right Tool, Right Moment
-
-Search tools (codebase index, grep, glob) before content reads.
-Batch independent reads. Prefer targeted edits to whole-file rewrites.
-Don't loop on a failing command — read the error properly after the
-second failure.
-
-### Delegation and Parallel Subagents
-
-Cursor agents will spawn parallel subagents for codebase exploration
-automatically. For independent review, ask explicitly for a fresh
-review pass. Don't expect subagents to coordinate with each other.
-
-### Persisted vs. Ephemeral Knowledge
-
-This rule file is the persistent layer. User Rules carry across
-projects. Memories capture small preferences. In-chat instructions are
-ephemeral; if a correction matters beyond this session, propose
-adding it to a rule.
-
-### Plan Before You Patch
-
-For changes touching three or more files, schema/migration work, or
-unfamiliar areas of the codebase, switch to Plan Mode. Review the
-generated plan as you would a code review. Don't approve a plan you
-wouldn't ship.
-
-### External Tools Are a Tax
-
-Each connected MCP server adds tool definitions to every request.
-Connect narrowly, on demand. Disconnect anything you haven't used in
-a week. Prefer MCP tools with specific names and clear single
-purposes.
-
-### Match the Model to the Task
-
-Use the model dropdown deliberately. High-capability models on
-trivial edits is waste; budget models on architecture work is
-breakage. Run measured comparisons before standardizing on the most
-expensive option.
+The rule body in `.cursor/rules/coding-agent-guidelines.mdc` is the same
+short core as `CLAUDE.md`. It stays short on purpose: with `alwaysApply: true`
+it is added to every Agent request, so explanations like this file live
+outside the rule.

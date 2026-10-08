@@ -1,7 +1,8 @@
 # Worked Examples
 
-Each example shows the failure mode (Section reference in `CLAUDE.md`),
-the lazy/wrong agent behavior, and the disciplined behavior. Code is
+Each example shows the failure mode (section in `CLAUDE.md`, or "notes" for
+[Claude Code notes](docs/CLAUDE_CODE_NOTES.md)), the lazy/wrong agent
+behavior, and the disciplined behavior. Code is
 illustrative; the lesson is in the contrast.
 
 ---
@@ -181,7 +182,7 @@ that file. Three thousand tokens saved.
 
 ---
 
-## 6. Sequential tool calls that should be parallel (§6)
+## 6. Sequential tool calls that should be parallel (§5)
 
 **Prompt:** "Summarize the routes, the schema, and the test config."
 
@@ -193,7 +194,7 @@ files don't depend on each other; there is no reason to serialize.
 
 ---
 
-## 7. MCP server bloat (§10)
+## 7. MCP server bloat (notes)
 
 **Wrong:** Connect MCP servers for GitHub, GitLab, Jira, Linear,
 Notion, Confluence, Slack, Discord, PagerDuty, Datadog, Sentry, AWS,
@@ -208,7 +209,7 @@ it for the afternoon and disable it after.
 
 ---
 
-## 8. Subagent for a one-shot task (§7)
+## 8. Subagent for a one-shot task (§5)
 
 **Prompt:** "What's the version of `requests` we use?"
 
@@ -234,7 +235,7 @@ it.
 
 ---
 
-## 9. Subagent that should have been used (§7)
+## 9. Subagent that should have been used (§5)
 
 **Prompt:** "I just finished the auth refactor. Review it for security
 issues."
@@ -255,7 +256,7 @@ The independence is the point.
 
 ---
 
-## 10. Skill misuse: too generic (§11)
+## 10. Skill misuse: too generic (notes)
 
 **Wrong `SKILL.md`:**
 
@@ -291,7 +292,7 @@ long without paying for it on every turn.
 
 ---
 
-## 11. Plan mode skipped on a multi-file refactor (§9)
+## 11. Plan mode skipped on a multi-file refactor (§5)
 
 **Prompt:** "Move the email-sending code out of `users.py` into a
 separate `notifications/` package."
@@ -310,7 +311,7 @@ shim. User approves. Then execute.
 
 ---
 
-## 12. Wrong model for the work (§12)
+## 12. Wrong model for the work (notes)
 
 **Wrong:** Run Opus on "rename `total` to `total_cents` in `Invoice`."
 A two-line `Edit` and a test re-run. Opus is 5× the price of Sonnet
