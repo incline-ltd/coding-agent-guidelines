@@ -22,6 +22,12 @@ const frontmatterFiles = [
 ];
 
 const skillFiles = frontmatterFiles.slice(0, 3);
+const coreFiles = [
+  "CLAUDE.md",
+  "AGENTS.md",
+  ".cursor/rules/coding-agent-guidelines.mdc",
+  ...skillFiles,
+];
 
 function fail(message) {
   console.error(message);
@@ -50,6 +56,23 @@ const canonicalSkill = readFileSync(skillFiles[0]);
 for (const file of skillFiles.slice(1)) {
   if (!canonicalSkill.equals(readFileSync(file))) {
     fail(`${file}: content does not match ${skillFiles[0]}`);
+  }
+}
+
+function readCore(file) {
+  const content = readFileSync(file, "utf8");
+  const marker = "\n## 1. Understand Before Editing\n";
+  const start = content.indexOf(marker);
+  if (start < 0) {
+    fail(`${file}: missing core heading`);
+  }
+  return content.slice(start);
+}
+
+const canonicalCore = readCore(coreFiles[0]);
+for (const file of coreFiles.slice(1)) {
+  if (readCore(file) !== canonicalCore) {
+    fail(`${file}: core does not match ${coreFiles[0]}`);
   }
 }
 
@@ -97,5 +120,6 @@ if (yamlCheck.status !== 0) {
 
 console.log(
   `Validated ${jsonFiles.length} JSON files, ${yamlFiles.length} YAML files, ` +
-    `${frontmatterFiles.length} frontmatter files, and ${skillFiles.length} synced SKILL.md copies.`,
+    `${frontmatterFiles.length} frontmatter files, ${skillFiles.length} synced SKILL.md copies, ` +
+    `and ${coreFiles.length} matching core bodies.`,
 );
