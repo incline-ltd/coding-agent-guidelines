@@ -121,7 +121,7 @@ cp SKILL.md ~/.agents/skills/coding-agent-guidelines/SKILL.md
 Codex scans these locations and loads the skill when the task matches its
 description or when you invoke it directly.
 
-See the [official Codex skill guide](https://developers.openai.com/codex/build-skills)
+See the [official Codex skill guide](https://learn.chatgpt.com/docs/build-skills)
 for all supported skill locations.
 
 ### Claude Code: Plugin
